@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF9500;
+  --color-secondary: #168BFF;
+  --color-accent: #FFC247;
+  --color-bg: #050B16;
+  --color-bg-secondary: #0B1728;
+  --color-card: #10243A;
+  --color-text: #F5F8FF;
+  --color-muted: #9BAFC4;
+  --color-border: #233B55;
+  --color-success: #26D69A;
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+}
+
+@utility bg-gradient-primary { background-image: linear-gradient(135deg, #FF9500, #FFC247); }
+@utility bg-gradient-page {
+  background-image: linear-gradient(
+    135deg,
+    #020610 0%,
+    #030B18 35%,
+    #061426 70%,
+    #020812 100%
+  );
+}
+@utility bg-gradient-neon { background-image: linear-gradient(90deg, #168BFF, #26D6FF); }
+@utility text-gradient-primary {
+  background-image: linear-gradient(135deg, #FF9500, #FFC247);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+@utility glass {
+  background: rgba(16, 36, 58, 0.55);
+  border: 1px solid var(--color-border);
+  backdrop-filter: blur(14px);
+}
+@utility glow-blue { box-shadow: 0 0 40px -8px rgba(22, 139, 255, 0.55); }
+@utility glow-orange { box-shadow: 0 0 30px -6px rgba(255, 149, 0, 0.6); }
+
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 20%,
+      rgba(15, 65, 115, 0.18),
+      transparent 55%
+    ),
+    linear-gradient(
+      180deg,
+      #020916 0%,
+      #061426 45%,
+      #020916 100%
+    );
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+.swiper-pagination-bullet { background: var(--color-muted) !important; opacity: .5; }
+.swiper-pagination-bullet-active { background: var(--color-primary) !important; opacity: 1; width: 22px !important; border-radius: 6px !important; }
+
+@theme {
+  --animate-float: float 7s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+  }
+}
+
+/* شناور شدن ملایم کارت‌ها (از ویژگی translate استفاده می‌کند تا با transform کج‌شدن تداخل نکند) */
+@theme {
+  --animate-float: float 7s ease-in-out infinite;
+  @keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -10px; }
+  }
+}
+
+/* چشمک زدن ستاره‌های پس‌زمینه */
+@theme {
+  --animate-twinkle: twinkle 4s ease-in-out infinite;
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 1; }
+  }
+}
