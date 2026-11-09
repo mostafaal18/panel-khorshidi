@@ -36,16 +36,17 @@ export default function Projects() {
           {projects.map((p, i) => (
             <SwiperSlide key={i}>
               <div className="group h-full transition-transform duration-500 hover:-translate-y-2">
-                
                 <div className="h-full rounded-[1.1rem] p-[1.5px] bg-linear-to-r from-primary via-white/15 to-secondary shadow-[-9px_0_22px_-8px_rgba(255,149,0,0.6),9px_0_22px_-8px_rgba(22,139,255,0.65)] transition-shadow duration-500 group-hover:shadow-[-11px_0_28px_-8px_rgba(255,149,0,0.75),11px_0_28px_-8px_rgba(22,139,255,0.8)]">
-                  
-                  <div className="relative h-full overflow-hidden rounded-[calc(1.1rem-1.5px)] bg-bg-secondary p-1">
-                    
+                  <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(1.1rem-1.5px)] bg-bg-secondary p-1">
                     <div className="relative overflow-hidden rounded-[calc(1.1rem-6px)]">
-                      <Img src={p.img} alt={p.title} className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-52" />
-                      
+                      <Img
+                        src={p.img}
+                        alt={p.title}
+                        className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-52"
+                      />
+
                       <div className="absolute inset-0 bg-linear-to-t from-bg/95 via-bg/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
-                      
+
                       <div className="absolute inset-x-0 bottom-0 flex translate-y-3 items-center justify-between gap-2 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                         <span className="text-sm font-bold text-text">{p.title}</span>
                         <span className="grid size-8 shrink-0 place-items-center rounded-full bg-primary text-bg shadow-[0_0_16px_rgba(255,149,0,0.6)]">
@@ -54,6 +55,12 @@ export default function Projects() {
                       </div>
                     </div>
 
+                    <div className="flex items-center justify-between gap-2 px-3 py-3">
+                      <h3 className="truncate text-sm font-bold text-text">{p.title}</h3>
+                      <span className="grid size-7 shrink-0 place-items-center rounded-full bg-primary/15 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-bg">
+                        <ArrowUpLeft size={14} />
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -4,20 +4,16 @@ import Img from './Img'
 export default function Hero() {
   return (
     <section className="relative isolate flex min-h-[680px] items-center overflow-hidden pt-28 lg:min-h-[780px]">
-      {/* عکس اصلی */}
       <Img src="/images/hero.jpg" className="!absolute inset-0 -z-20 h-full w-full" />
 
-      {/* افکت زمین و خورشید (کنار عکس واقعی هم زیبا می‌ماند) */}
-      <div aria-hidden className="pointer-events-none absolute -left-[12%] -top-[45%] -z-10 size-[900px] rounded-full border border-secondary/30 shadow-[inset_0_0_120px_rgba(22,139,255,0.25),0_0_80px_rgba(22,139,255,0.2)]" />
+      {/* <div aria-hidden className="pointer-events-none absolute -left-[12%] -top-[45%] -z-10 size-[900px] rounded-full border border-secondary/10 shadow-[inset_0_0_120px_rgba(22,139,255,0.25),0_0_80px_rgba(22,139,255,0.2)]" />
       <div aria-hidden className="pointer-events-none absolute left-[28%] top-[8%] -z-10 size-72 rounded-full bg-[radial-gradient(circle,rgba(255,226,170,0.9)_0%,rgba(255,149,0,0.35)_25%,transparent_65%)] opacity-70 blur-sm" />
 
-      {/* سایه برای خوانایی متن */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-l from-bg/90 via-bg/50 to-transparent" />
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-bg to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-bg to-transparent" /> */}
 
       <div className="mx-auto w-full max-w-7xl px-5">
         <div className="max-w-xl">
-          {/* برچسب با خط دو طرف */}
           <div className="mb-6 flex items-center gap-3 text-sm font-medium text-primary">
             <span className="h-px w-10 bg-linear-to-l from-primary to-transparent" />
             انرژی پاک، آینده روشن
@@ -55,17 +51,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* برگ شناور سمت راست */}
-      <Leaf aria-hidden className="absolute start-4 top-[38%] hidden rotate-12 fill-success/30 text-success drop-shadow-[0_0_12px_rgba(38,214,154,0.7)] motion-safe:animate-float md:block" size={30} />
-
-      {/* نشانگر اسکرول */}
-      <a href="#services" aria-label="اسکرول کنید" className="absolute bottom-28 end-6 hidden flex-col items-center gap-2 text-xs text-muted transition-colors hover:text-text lg:flex">
-        <span className="flex h-10 w-6 justify-center rounded-full border-2 border-white/50 pt-2">
-          <span className="h-2 w-1 rounded-full bg-text motion-safe:animate-bounce" />
-        </span>
-        اسکرول کنید
-      </a>
     </section>
   )
 }

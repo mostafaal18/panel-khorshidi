@@ -31,15 +31,13 @@ const frame = 'bg-linear-to-r from-primary via-white/20 to-secondary'
 
 export default function Services() {
   return (
-    <section id="services" className="relative isolate overflow-hidden py-10 sm:py-18 lg:py-22">
-      {/* نورهای پس‌زمینه */}
+    <section id="services" className="relative isolate overflow-hidden pb-5 sm:pb-10 lg:pb-12 pt-10 sm:pt-18 lg:pt-22 ">
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/4 -z-10 size-[420px] rounded-full bg-secondary/15 blur-[140px]" />
       <div aria-hidden className="pointer-events-none absolute -right-40 bottom-0 -z-10 size-[380px] rounded-full bg-primary/10 blur-[130px]" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-4 px-4 sm:px-6 md:gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-8">
 
-        {/* متن */}
-        <div className="text-start lg:order-1">
+        <div className="text-start lg:order-1 md:-mt-35">
           <SectionHeading
             eyebrow="راهکارهای جذاب خورشیدی"
             title="خدمات ما"

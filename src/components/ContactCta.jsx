@@ -3,8 +3,8 @@ import { ArrowLeft, Phone } from 'lucide-react'
 export default function ContactCta() {
   return (
     <section id="contact" className="relative overflow-hidden ">
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0">
+      <div className="relative overflow-hidden ">
+        <div className="absolute inset-0 ">
           <img
             src="/images/contact-banner.png"
             alt=""
@@ -13,7 +13,7 @@ export default function ContactCta() {
           
         </div>
 
-        <div className="relative z-10 flex min-h-[230px] flex-col items-center justify-between gap-8 px-7 py-10 text-center md:flex-row md:px-12 md:text-right">
+        <div className="relative z-10 flex min-h-[230px] flex-col items-center justify-between gap-8 px-3 py-10 text-center md:flex-row md:px-5 md:text-right  max-w-7xl mx-auto">
 
           <a
             href="tel:02112345678"

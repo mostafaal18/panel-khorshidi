@@ -1,12 +1,12 @@
+// src/components/ProductCard.jsx
 import { memo } from 'react'
+import { Link } from 'react-router-dom'
+import { ShoppingBag } from 'lucide-react'
 import Img from '../Img'
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAdd }) => {
   const hasDiscount = Number(product.discount_percent) > 0
-
-  const finalPrice =
-    Number(product.final_price) || Number(product.price) || 0
-
+  const finalPrice = Number(product.final_price) || Number(product.price) || 0
   const oldPrice = Number(product.price) || 0
 
   const imageUrl =
@@ -15,26 +15,35 @@ const ProductCard = ({ product }) => {
     product.main_image ||
     ''
 
+  // لینک به صفحهٔ جزئیات محصول
+  const href = product.slug ? `/product/${product.slug}` : '#'
+
+  const handleAdd = (e) => {
+    e.preventDefault() // جلوگیری از رفتن به صفحهٔ جزئیات
+    e.stopPropagation()
+    onAdd?.(product.id)
+  }
+
   return (
-    <a
-      href="#contact"
+    <Link
+      to={href}
       className="
-        group flex h-full min-w-0 flex-col overflow-hidden
+        group relative flex h-full min-w-0 flex-col overflow-hidden
         rounded-2xl border border-white/10
         bg-bg-secondary/70 backdrop-blur-xl
         shadow-[0_10px_30px_-15px_rgba(0,0,0,0.6),inset_0_1px_0_rgba(255,255,255,0.05)]
         transition-all duration-500
         hover:-translate-y-1 hover:border-primary/40
-        hover:shadow-[0_15px_40px_-15px_rgba(255,149,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)] 
+        hover:shadow-[0_15px_40px_-15px_rgba(255,149,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)]
       "
     >
       {/* تصویر */}
-      <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-bg/60 ">
+      <div className="relative aspect-square w-full shrink-0 overflow-hidden bg-bg/60">
         {imageUrl ? (
           <Img
             src={imageUrl}
             alt={product.title || 'محصول'}
-            className="h-full w-full object-cover transition-transform duration-700 will-change-transform  "
+            className="h-full w-full object-cover transition-transform duration-700 will-change-transform group-hover:scale-110"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-xs text-muted sm:text-sm">
@@ -53,12 +62,31 @@ const ProductCard = ({ product }) => {
               sm:end-3 sm:top-3 sm:text-xs
             "
           >
-            {product.discount_percent}٪
+            {product.discount_percent.toLocaleString('fa-IR')}٪
           </span>
         )}
 
         {/* گرادیان کف تصویر در هاور */}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/20 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+
+        {/* دکمهٔ افزودن به سبد - فقط در هاور */}
+        {onAdd && (
+          <button
+            onClick={handleAdd}
+            className="
+              absolute bottom-2 end-2 grid size-9 place-items-center rounded-full
+              bg-primary text-bg shadow-[0_0_16px_rgba(255,149,0,0.55)]
+              opacity-0 transition-all duration-300
+              group-hover:translate-y-0 group-hover:opacity-100
+              hover:scale-110
+              translate-y-2
+              sm:bottom-3 sm:end-3 sm:size-10
+            "
+            aria-label="افزودن به سبد خرید"
+          >
+            <ShoppingBag size={16} />
+          </button>
+        )}
       </div>
 
       {/* محتوا */}
@@ -84,7 +112,7 @@ const ProductCard = ({ product }) => {
           )}
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 
