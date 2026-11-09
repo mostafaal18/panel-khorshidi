@@ -16,7 +16,7 @@ const ProductCard = ({ product, onAdd }) => {
     ''
 
   // لینک به صفحهٔ جزئیات محصول
-  const href = product.slug ? `/product/${product.slug}` : '#'
+  const href = product.slug ? `/products/${product.slug}` : '#'
 
   const handleAdd = (e) => {
     e.preventDefault() // جلوگیری از رفتن به صفحهٔ جزئیات

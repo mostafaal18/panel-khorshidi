@@ -42,10 +42,8 @@ export default function Projects() {
                       <Img
                         src={p.img}
                         alt={p.title}
-                        className="h-44 w-full object-cover transition-transform duration-700 group-hover:scale-110 sm:h-52"
+                        className="h-44 w-full object-cover transition-transform duration-700  sm:h-52"
                       />
-
-                      <div className="absolute inset-0 bg-linear-to-t from-bg/95 via-bg/10 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-100" />
 
                       <div className="absolute inset-x-0 bottom-0 flex translate-y-3 items-center justify-between gap-2 p-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                         <span className="text-sm font-bold text-text">{p.title}</span>

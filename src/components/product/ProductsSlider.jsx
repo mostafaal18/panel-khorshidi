@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Link } from 'react-router-dom' // ✅ اضافه شد
 import 'swiper/css'
 import { products } from '../../data'
 import ProductCard from './ProductCard'
@@ -11,7 +12,6 @@ const navBtn =
 export default function ProductsSlider() {
   return (
     <section id="products" className="mx-auto max-w-7xl px-5 pt-12 md:py-12">
-      {/* هدر: عنوان و دکمه */}
       <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="mb-1.5 flex items-center gap-2 text-[11px] font-medium text-primary sm:text-xs">
@@ -22,8 +22,9 @@ export default function ProductsSlider() {
           </h2>
         </div>
 
-        <a
-          href="#contact"
+        {/* ✅ اصلاح: از <a href="#contact"> به <Link to="/products"> */}
+        <Link
+          to="/products"
           className="
             group inline-flex w-full shrink-0 items-center justify-center gap-2
             rounded-full border border-primary/60 bg-primary/5
@@ -39,7 +40,7 @@ export default function ProductsSlider() {
             size={16}
             className="transition-transform duration-300 group-hover:-translate-x-1"
           />
-        </a>
+        </Link>
       </div>
 
       <div className="relative">

@@ -8,6 +8,9 @@ import Faq from '../components/Faq'
 import Testimonials from '../components/Testimonials'
 import ContactCta from '../components/ContactCta'
 import ProductsSlider from '../components/product/ProductsSlider'
+import BlogSlider from '../components/BlogSlider'
+import BrandsSlider from '../components/BrandsSlider'
+import TopCategories from '../components/TopCategories'   // ← اضافه شد
 
 export default function Home() {
   return (
@@ -19,8 +22,11 @@ export default function Home() {
 
       <Hero />
       <Stats />
+      <TopCategories />        {/* ← اینجا */}
       <ProductsSlider />
+
       <Services />
+      <BrandsSlider />
       <About />
       <Projects />
 
@@ -29,6 +35,7 @@ export default function Home() {
         <Faq />
       </section>
 
+      <BlogSlider />
       <ContactCta />
     </>
   )

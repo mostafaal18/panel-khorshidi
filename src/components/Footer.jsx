@@ -3,15 +3,16 @@ import {
   Mail,
   MapPin,
   Send,
-  Briefcase, // جایگزین Linkedin
+  Briefcase,
   MessageCircle,
   ArrowUpLeft,
   ArrowLeft,
   Zap,
-  Camera, // ایمپورت شد
+  Camera,
+  Sun,
 } from 'lucide-react'
 
-import Logo from './Logo'
+import { Link } from 'react-router-dom'
 import { footerLinks, footerServices } from '../data'
 
 const Col = ({ title, items }) => (
@@ -41,26 +42,10 @@ const Col = ({ title, items }) => (
 )
 
 const socials = [
-  {
-    icon: Camera,
-    href: '#',
-    label: 'Camera',
-  },
-  {
-    icon: Send,
-    href: '#',
-    label: 'Telegram',
-  },
-  {
-    icon: Briefcase, // آیکون جایگزین لینکدین
-    href: '#',
-    label: 'LinkedIn',
-  },
-  {
-    icon: MessageCircle,
-    href: '#',
-    label: 'WhatsApp',
-  },
+  { icon: Camera, href: '#', label: 'Instagram' },
+  { icon: Send, href: '#', label: 'Telegram' },
+  { icon: Briefcase, href: '#', label: 'LinkedIn' },
+  { icon: MessageCircle, href: '#', label: 'WhatsApp' },
 ]
 
 const contactItems = [
@@ -95,7 +80,25 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-5 pb-10 pt-14 sm:px-6 sm:pt-16 lg:px-8 lg:pt-20">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-14 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr] lg:gap-12">
           <div className="space-y-5">
-            <Logo large />
+            {/* ── لوگو (inline) ── */}
+            <Link
+              to="/"
+              dir="ltr"
+              aria-label="SunTech — صفحه اصلی"
+              className="group flex items-center gap-3"
+            >
+              <span className="relative grid size-11 shrink-0 place-items-center rounded-xl bg-gradient-primary shadow-[0_0_20px_-4px_rgba(255,149,0,0.6)] transition-all duration-500 group-hover:rotate-12 group-hover:shadow-[0_0_30px_-2px_rgba(255,149,0,0.8)] sm:size-12">
+                <Sun size={22} className="text-bg" strokeWidth={2.5} />
+              </span>
+              <div className="leading-tight">
+                <div className="text-2xl font-extrabold tracking-wide text-text sm:text-3xl">
+                  Sun<span className="text-gradient-primary">Tech</span>
+                </div>
+                <div className="mt-0.5 text-[10px] font-medium tracking-wide text-muted sm:text-[11px]">
+                  Solar Energy Solutions
+                </div>
+              </div>
+            </Link>
 
             <p className="max-w-sm text-sm leading-8 text-slate-400">
               با SunTech به دنیای انرژی پاک قدم بگذارید. ما با ارائه راهکارهای
@@ -121,10 +124,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {contactItems.map(({ icon: Icon, value, href, dir }) => (
                 <li key={value}>
-                  <a
-                    href={href}
-                    className="group flex items-center gap-3"
-                  >
+                  <a href={href} className="group flex items-center gap-3">
                     <span className="grid size-10 shrink-0 place-items-center rounded-xl border border-white/10 bg-white/[0.03] text-primary transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/10 group-hover:shadow-[0_0_20px_rgba(255,149,0,0.1)]">
                       <Icon size={17} />
                     </span>
@@ -192,7 +192,6 @@ export default function Footer() {
 
             <span className="h-3 w-px bg-white/10" />
 
-            {/* href تکراری حذف شد */}
             <a
               href="#top"
               className="group flex items-center gap-1.5 transition-colors duration-300 hover:text-primary"
