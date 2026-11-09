@@ -43,13 +43,12 @@ export default function App() {
           <Route path="/product/:slug" element={<ProductDetail />} />
           <Route path="/services" element={<Services />} />
           <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectDetail />} />
+          <Route path="/project/:slug" element={<ProjectDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/consultation" element={<Consultation />} />   {/* ← جدید */}
           <Route path="/about" element={<About />} />   {/* ← جدید */}
           <Route path="/products" element={<Products />} />
           <Route path="/checkout" element={<Checkout />} />
-{/* <Route path="/profile" element={<Profile/>} /> */}
 
 
 
