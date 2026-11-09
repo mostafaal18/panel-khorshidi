@@ -36,8 +36,8 @@ export default function Services() {
       <div aria-hidden className="pointer-events-none absolute -left-40 top-1/4 -z-10 size-[420px] rounded-full bg-secondary/15 blur-[140px]" />
       <div aria-hidden className="pointer-events-none absolute -right-40 bottom-0 -z-10 size-[380px] rounded-full bg-primary/10 blur-[130px]" />
 
-      <div className="mx-auto grid max-w-7xl items-center gap-4 md:gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-8">
-        
+      <div className="mx-auto grid max-w-7xl items-center gap-4 px-4 sm:px-6 md:gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10 lg:px-8">
+
         {/* متن */}
         <div className="text-start lg:order-1">
           <SectionHeading
@@ -66,7 +66,7 @@ export default function Services() {
           </a>
         </div>
 
-        {/* ۱. دسکتاپ: کارت‌های شیشه‌ای سه‌بعدی روی هم افتاده */}
+        {/* ترکیب سه‌بعدی: فقط دسکتاپ */}
         <div dir="ltr" className="relative mx-auto hidden aspect-[560/430] w-full max-w-[680px] lg:order-2 lg:block">
           <div aria-hidden className="pointer-events-none absolute left-[15%] top-[25%] size-[65%] rounded-full border border-secondary/15 shadow-[0_0_70px_rgba(22,139,255,0.15)]" />
           <div aria-hidden className="pointer-events-none absolute left-[22%] top-[32%] size-[50%] rounded-full border border-secondary/20" />
@@ -98,23 +98,25 @@ export default function Services() {
               className={`group absolute motion-safe:animate-float ${cardStyles[i].position}`}
             >
               <div
-                className={`h-full w-full rounded-[1.5rem] p-[1.5px] shadow-[-14px_10px_40px_-14px_rgba(255,149,0,0.5),14px_10px_40px_-14px_rgba(22,139,255,0.6),0_25px_55px_rgba(0,0,0,0.6)] will-change-transform transition-transform duration-700 ease-out ${frame} ${cardStyles[i].transform}`}
+                className={`h-full w-full rounded-2xl p-[1.5px] shadow-[-8px_6px_24px_-10px_rgba(255,149,0,0.5),8px_6px_24px_-10px_rgba(22,139,255,0.6),0_14px_30px_rgba(0,0,0,0.6)] will-change-transform transition-transform duration-700 ease-out sm:rounded-[1.5rem] sm:shadow-[-14px_10px_40px_-14px_rgba(255,149,0,0.5),14px_10px_40px_-14px_rgba(22,139,255,0.6),0_25px_55px_rgba(0,0,0,0.6)] ${frame} ${cardStyles[i].transform}`}
               >
-                <article className="relative h-full w-full overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-bg-secondary/70 p-[3%] backdrop-blur-xl">
+                <article className="relative h-full w-full overflow-hidden rounded-[calc(1rem-1.5px)] bg-bg-secondary/70 p-[3%] backdrop-blur-xl sm:rounded-[calc(1.5rem-1.5px)]">
                   <Img
                     src={s.img}
                     alt={s.title}
-                    className="!absolute inset-[3%] rounded-[1rem] transition-transform duration-700 group-hover:scale-110"
+                    className="!absolute inset-[3%] rounded-xl object-cover transition-transform duration-700 group-hover:scale-110 sm:rounded-[1rem]"
                   />
-                  <div className="absolute inset-[3%] rounded-[1rem] bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+                  <div className="absolute inset-[3%] rounded-xl bg-gradient-to-t from-bg via-bg/30 to-transparent sm:rounded-[1rem]" />
                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-70" />
                   <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-linear-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-1000 group-hover:left-[130%] group-hover:opacity-100" />
 
-                  <div dir="rtl" className="absolute inset-x-0 bottom-[8%] flex flex-col items-center gap-2 px-2 text-center">
-                    <div className="flex size-10 items-center justify-center rounded-xl border border-primary/35 bg-bg/80 text-primary shadow-[0_0_20px_rgba(255,149,0,0.25)] backdrop-blur-md transition-transform duration-500 group-hover:scale-110">
+                  <div dir="rtl" className="absolute inset-x-0 bottom-[8%] flex flex-col items-center gap-1 px-1 text-center sm:gap-2 sm:px-2">
+                    <div className="flex size-7 items-center justify-center rounded-lg border border-primary/35 bg-bg/80 text-primary shadow-[0_0_14px_rgba(255,149,0,0.25)] backdrop-blur-md transition-transform duration-500 group-hover:scale-110 sm:size-10 sm:rounded-xl sm:shadow-[0_0_20px_rgba(255,149,0,0.25)] [&>svg]:size-4 sm:[&>svg]:size-[22px]">
                       <Icon name={s.icon} size={22} />
                     </div>
-                    <h3 className="text-xs font-extrabold leading-6 text-text sm:text-sm">{s.title}</h3>
+                    <h3 className="text-[10px] font-extrabold leading-4 text-text sm:text-xs sm:leading-6 lg:text-sm">
+                      {s.title}
+                    </h3>
                   </div>
                 </article>
               </div>
@@ -122,36 +124,43 @@ export default function Services() {
           ))}
         </div>
 
-        {/* ۲. موبایل و تبلت: دقیقاً همان استایل دسکتاپ، اما به صورت زیر هم */}
-        <div className="mt-8 grid grid-cols-1 gap-6 lg:hidden">
-          {services.map((s) => (
-            <div 
-              key={s.title} 
-              // ارتفاع کارت‌ها در موبایل و تبلت برای حفظ تناسب
-              className={`h-[320px] w-full rounded-[1.5rem] p-[1.5px] shadow-[-10px_8px_30px_-12px_rgba(255,149,0,0.5),10px_8px_30px_-12px_rgba(22,139,255,0.6),0_15px_35px_rgba(0,0,0,0.5)] transition-transform duration-500 hover:-translate-y-1 sm:h-[400px] ${frame}`}
-            >
-              <article className="group relative h-full w-full overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-bg-secondary/70 p-[3%] backdrop-blur-xl">
-                <Img
-                  src={s.img}
-                  alt={s.title}
-                  className="!absolute inset-[3%] rounded-[1rem] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-[3%] rounded-[1rem] bg-gradient-to-t from-bg via-bg/30 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-70" />
-                
-                {/* افکت درخشش نور */}
-                <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-linear-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-1000 group-hover:left-[130%] group-hover:opacity-100" />
+        {/* موبایل و تبلت: همان کارت‌های سه‌بعدی و شناور دسکتاپ، ولی ستونی زیر هم */}
+        <div dir="ltr" className="relative mt-6 flex flex-col items-center gap-14 px-6 pb-6 sm:gap-16 lg:hidden">
+          {/* نور پس‌زمینهٔ ستون */}
+          <div aria-hidden className="pointer-events-none absolute inset-x-[15%] inset-y-0 -z-10 rounded-full bg-secondary/10 blur-[90px]" />
 
-                {/* محتوای داخل کارت (آیکون و متن) دقیقاً مثل دسکتاپ */}
-                <div dir="rtl" className="absolute inset-x-0 bottom-[8%] flex flex-col items-center gap-2 px-2 text-center">
-                  <div className="flex size-12 items-center justify-center rounded-xl border border-primary/35 bg-bg/80 text-primary shadow-[0_0_25px_rgba(255,149,0,0.3)] backdrop-blur-md transition-transform duration-500 group-hover:scale-110 sm:size-10">
-                    <Icon name={s.icon} size={24} className="sm:size-[22px]" />
-                  </div>
-                  <h3 className="text-sm font-extrabold leading-6 text-text sm:text-xs">{s.title}</h3>
+          {services.map((s, i) => {
+            const style = cardStyles[i % cardStyles.length]
+            return (
+              <div
+                key={s.title}
+                style={{ animationDelay: style.delay }}
+                className="group aspect-[10/11] w-[68%] max-w-[300px] motion-safe:animate-float sm:w-[52%]"
+              >
+                <div
+                  className={`h-full w-full rounded-[1.5rem] p-[1.5px] shadow-[-14px_10px_40px_-14px_rgba(255,149,0,0.5),14px_10px_40px_-14px_rgba(22,139,255,0.6),0_25px_55px_rgba(0,0,0,0.6)] will-change-transform transition-transform duration-700 ease-out ${frame} ${style.transform}`}
+                >
+                  <article className="relative h-full w-full overflow-hidden rounded-[calc(1.5rem-1.5px)] bg-bg-secondary/70 p-[3%] backdrop-blur-xl">
+                    <Img
+                      src={s.img}
+                      alt={s.title}
+                      className="!absolute inset-[3%] rounded-[1rem] object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-[3%] rounded-[1rem] bg-gradient-to-t from-bg via-bg/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent opacity-70" />
+                    <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-linear-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-1000 group-hover:left-[130%] group-hover:opacity-100" />
+
+                    <div dir="rtl" className="absolute inset-x-0 bottom-[8%] flex flex-col items-center gap-2 px-2 text-center">
+                      <div className="flex size-10 items-center justify-center rounded-xl border border-primary/35 bg-bg/80 text-primary shadow-[0_0_20px_rgba(255,149,0,0.25)] backdrop-blur-md transition-transform duration-500 group-hover:scale-110">
+                        <Icon name={s.icon} size={22} />
+                      </div>
+                      <h3 className="text-sm font-extrabold leading-6 text-text">{s.title}</h3>
+                    </div>
+                  </article>
                 </div>
-              </article>
-            </div>
-          ))}
+              </div>
+            )
+          })}
         </div>
 
       </div>

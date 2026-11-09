@@ -29,7 +29,6 @@ export default function Projects() {
           modules={[Navigation, Autoplay]}
           navigation={{ prevEl: '.proj-prev', nextEl: '.proj-next' }}
           autoplay={{ delay: 3500, disableOnInteraction: false }}
-          rewind
           spaceBetween={18}
           breakpoints={{ 0: { slidesPerView: 1.2 }, 640: { slidesPerView: 2.2 }, 1024: { slidesPerView: 4 } }}
           className="!px-1 !py-6"

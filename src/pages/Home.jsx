@@ -7,6 +7,7 @@ import Projects from '../components/Projects'
 import Faq from '../components/Faq'
 import Testimonials from '../components/Testimonials'
 import ContactCta from '../components/ContactCta'
+import ProductsSlider from '../components/product/ProductsSlider'
 
 export default function Home() {
   return (
@@ -15,9 +16,10 @@ export default function Home() {
         <title>SunTech | راهکارهای هوشمند انرژی خورشیدی</title>
         <meta name="description" content="طراحی، نصب و پشتیبانی پنل‌های خورشیدی خانگی، تجاری و صنعتی" />
       </Helmet>
-      
+
       <Hero />
       <Stats />
+      <ProductsSlider />
       <Services />
       <About />
       <Projects />
@@ -26,7 +28,7 @@ export default function Home() {
         <Testimonials />
         <Faq />
       </section>
-      
+
       <ContactCta />
     </>
   )
